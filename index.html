@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="MWORK guided call script workspace for live agent calls." />
+  <title>MWORK Call Guide</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">MWORK AGENT WORKSPACE</p>
+        <h1>Live Call Guide</h1>
+      </div>
+      <div class="call-status">
+        <span class="status-dot"></span>
+        <span id="callStatusText">Ready to start</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="progress-card">
+          <div class="progress-header">
+            <span>Call progress</span>
+            <span id="progressText">0%</span>
+          </div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+
+        <nav id="stageNav" class="stage-nav" aria-label="Call stages"></nav>
+
+        <div class="sidebar-tools">
+          <button id="showInterruptions" class="tool-button">Early interruptions</button>
+          <button id="showObjections" class="tool-button">Objections</button>
+          <button id="showBenefits" class="tool-button">Benefits</button>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <div id="startPanel" class="start-panel">
+          <span class="step-chip">CALL SETUP</span>
+          <h2>Start the guided call</h2>
+          <p>The system will move through the script one stage at a time. Early interruptions, objections, and benefits remain available without losing your place.</p>
+          <div class="setup-grid">
+            <label>Agent first name<input id="agentName" placeholder="FN" /></label>
+            <label>Customer first name<input id="customerFirst" placeholder="FN" /></label>
+            <label>Customer last name<input id="customerLast" placeholder="LN" /></label>
+            <label>Year / Make / Model<input id="vehicle" placeholder="YR, MAKE, MODEL" /></label>
+            <label>Insurance company<input id="insurance" placeholder="INS CO." /></label>
+          </div>
+          <button id="startCall" class="primary-button">Start call</button>
+        </div>
+
+        <div id="callPanel" class="call-panel hidden">
+          <div class="stage-heading">
+            <div>
+              <span id="stageNumber" class="step-chip"></span>
+              <h2 id="stageTitle"></h2>
+              <p id="stagePurpose" class="stage-purpose"></p>
+            </div>
+            <button id="restartCall" class="ghost-button">Restart</button>
+          </div>
+
+          <div id="scriptCard" class="script-card"></div>
+          <div id="choiceArea" class="choice-area"></div>
+          <div id="contextArea" class="context-area"></div>
+
+          <div class="navigation-row">
+            <button id="previousStage" class="secondary-button">Previous</button>
+            <button id="nextStage" class="primary-button">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <aside id="drawer" class="drawer" aria-hidden="true">
+        <div class="drawer-header">
+          <div>
+            <span id="drawerKicker" class="eyebrow"></span>
+            <h2 id="drawerTitle"></h2>
+          </div>
+          <button id="closeDrawer" class="icon-button" aria-label="Close">×</button>
+        </div>
+        <div id="drawerContent" class="drawer-content"></div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
